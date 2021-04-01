@@ -20,9 +20,7 @@ const onSignUpSuccess = function () {
   $('#message').text('Account was successfully created!')
   $('#message').addClass('success')
   setTimeout(() => {
-  // clear the deltext messages
     $('#message').text('')
-    // remove the success class
     $('#message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
@@ -33,12 +31,14 @@ const onSignInSuccess = function (response) {
   $('#message').text(`${response.user.email} is signed in!`)
   $('#message').addClass('success')
   setTimeout(() => {
-  // clear the deltext messages
     $('#message').text('')
-    // remove the success class
     $('#message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
 }
 
 const onChangeSuccess = function (response) {
@@ -64,6 +64,10 @@ const onSignOutSuccess = function (response) {
     $('#message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
 }
 
 module.exports = {

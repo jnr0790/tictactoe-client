@@ -28,6 +28,17 @@ const onSignIn = function (event) {
     .catch(ui.onError)
 }
 
+const onChange = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.change(data)
+    .then(ui.onChangeSuccess)
+    .catch(ui.onError)
+}
+
 const onSignOut = function (event) {
   event.preventDefault()
 
@@ -43,5 +54,6 @@ const onSignOut = function (event) {
 module.exports = {
   onSignUp,
   onSignIn,
+  onChange,
   onSignOut
 }

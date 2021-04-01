@@ -41,6 +41,18 @@ const onSignInSuccess = function (response) {
   $('form').trigger('reset')
 }
 
+const onChangeSuccess = function (response) {
+  $('#message').text('You sucessfully changed your password!')
+  $('#message').addClass('success')
+  setTimeout(() => {
+  // clear the deltext messages
+    $('#message').text('')
+    // remove the success class
+    $('#message').removeClass('success')
+  }, 5000)
+  $('form').trigger('reset')
+}
+
 const onSignOutSuccess = function (response) {
   store.user = null
   $('#message').text('You signed out!')
@@ -58,5 +70,6 @@ module.exports = {
   onError,
   onSignUpSuccess,
   onSignInSuccess,
+  onChangeSuccess,
   onSignOutSuccess
 }

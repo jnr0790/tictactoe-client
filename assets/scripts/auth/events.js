@@ -18,21 +18,30 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
-  // keep page from the default refresh after clicking button
   event.preventDefault()
-  // select the form that will be submitted with click of button
+
   const form = event.target
-  // creating a javascript object from the forms values
   const data = getFormFields(form)
-  // pass forms data to API
+
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onError)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.signOut(data)
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onError)
+}
 
 // export functions for app.js to aquire it
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onSignOut
 }

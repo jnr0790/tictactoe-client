@@ -1,3 +1,5 @@
+const store = require('./../store')
+
 // onError function for message when form doesn't go through properly
 const onError = function (err) {
   // log any errors that occur
@@ -26,7 +28,21 @@ const onSignUpSuccess = function () {
   $('form').trigger('reset')
 }
 
+const onSignInSuccess = function (response) {
+  store.user = response.user
+  $('#message').text(`${response.user.email} is signed in!`)
+  $('#message').addClass('success')
+  setTimeout(() => {
+  // clear the deltext messages
+    $('#message').text('')
+    // remove the success class
+    $('#message').removeClass('success')
+  }, 5000)
+  $('form').trigger('reset')
+}
+
 module.exports = {
   onError,
-  onSignUpSuccess
+  onSignUpSuccess,
+  onSignInSuccess
 }

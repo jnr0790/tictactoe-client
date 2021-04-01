@@ -1,6 +1,6 @@
 # TIC TAC TOE
 
-This fun application let's users play the class game of Tic Tac Toe in their browser.
+This fun application let's users play the classic game of Tic Tac Toe in their browser.
 
 ## App Link
 
@@ -19,4 +19,4 @@ This fun application let's users play the class game of Tic Tac Toe in their bro
 
 ## Wireframe
 
-![Tic Tac Toe Wireframe](https://raw.githubusercontent.com/jnr0790/tictactoe-client/main/wireframe/tictactoe-wireframes.png "Tic Tac Toe Wireframe")
+![Tic Tac Toe](https://user-images.githubusercontent.com/80164312/113311387-42b95c00-92d7-11eb-9d5d-5f5aa74e0f56.png)

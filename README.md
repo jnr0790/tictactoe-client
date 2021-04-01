@@ -19,4 +19,4 @@ This fun application let's users play the class game of Tic Tac Toe in their bro
 
 ## Wireframe
 
-![Tic Tac Toe Wireframe](./wireframe/tictactoe-wireframe.png "Tic Tac Toe Wireframe")
+![Tic Tac Toe Wireframe](https://raw.githubusercontent.com/jnr0790/tictactoe-client/main/wireframe/tictactoe-wireframes.png "Tic Tac Toe Wireframe")

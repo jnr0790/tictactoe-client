@@ -37,6 +37,7 @@ const onSignInSuccess = function (response) {
   $('form').trigger('reset')
   $('#change-password').show()
   $('#sign-out').show()
+  $('#play-game').show()
   $('#sign-in').hide()
   $('#sign-up').hide()
 }
@@ -66,8 +67,19 @@ const onSignOutSuccess = function (response) {
   $('form').trigger('reset')
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#play-game').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+}
+
+const onPlayGameSuccess = function (response) {
+  $('#message').text('Have Fun!')
+  $('#message').addClass('success')
+  setTimeout(() => {
+    $('#message').text('')
+    $('#message').removeClass('success')
+  }, 5000)
+  $('form').trigger('reset')
 }
 
 module.exports = {
@@ -75,5 +87,6 @@ module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onChangeSuccess,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onPlayGameSuccess
 }

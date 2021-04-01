@@ -50,10 +50,17 @@ const onSignOut = function (event) {
     .catch(ui.onError)
 }
 
+const onPlayGame = function () {
+  api.playGame()
+    .then(ui.onPlayGameSuccess)
+    .catch(ui.onError)
+}
+
 // export functions for app.js to aquire it
 module.exports = {
   onSignUp,
   onSignIn,
   onChange,
-  onSignOut
+  onSignOut,
+  onPlayGame
 }

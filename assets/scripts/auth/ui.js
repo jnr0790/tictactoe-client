@@ -80,6 +80,7 @@ const onPlayGameSuccess = function (response) {
     $('#message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
+  $('#board').show()
 }
 
 module.exports = {

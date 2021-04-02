@@ -1,1 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  text-align: center;
+}
+
+#sign-in {
+  margin: 10px;
+}
+
+#board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
+  height: 490px;
+  width: 490px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.square {
+  background-color: white;
+  height: 160px;
+  width: 160px;
+  margin-bottom: 5px;
+}

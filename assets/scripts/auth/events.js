@@ -56,11 +56,32 @@ const onPlayGame = function () {
     .catch(ui.onError)
 }
 
+const onBoardClick = function () {
+  let currentPlayer = 'playerX'
+
+  const cells = $('#board div').toArray()
+  console.log(cells)
+  // get the position the player chose on the board by the id attribute
+  const index = event.target.id
+
+  // figure out whos turn it is
+
+  // use jquery to add the player to the html board
+  $(event.target).text('X')
+
+  // then pass the index and player to the boardClick function
+  // so it can send that data to the API
+  api.boardClick()
+    .then(ui.onBoardClickSuccess)
+    .catch(ui.onError)
+}
+
 // export functions for app.js to aquire it
 module.exports = {
   onSignUp,
   onSignIn,
   onChange,
   onSignOut,
-  onPlayGame
+  onPlayGame,
+  onBoardClick
 }

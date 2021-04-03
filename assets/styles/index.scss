@@ -8,10 +8,6 @@ button {
   margin: 10px;
 }
 
-#sign-in {
-  margin: 10px;
-}
-
 #board {
   display: flex;
   flex-wrap: wrap;
@@ -21,11 +17,15 @@ button {
   width: 490px;
   margin: 0 auto;
   margin-top: 50px;
-}
+  align-items: center;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 160px;
+    width: 160px;
+    margin-bottom: 5px;
 
-.square {
-  background-color: white;
-  height: 160px;
-  width: 160px;
-  margin-bottom: 5px;
+  }
 }

@@ -74,14 +74,18 @@ const onSignOutSuccess = function (response) {
 }
 
 const onPlayGameSuccess = function (response) {
-  $('#message').text('Have Fun!')
-  $('#message').addClass('success')
+  $('#game-message').text('Have Fun!')
+  $('#game-message').addClass('success')
   setTimeout(() => {
-    $('#message').text('')
-    $('#message').removeClass('success')
+    $('#game-message').text('')
+    $('#game-message').removeClass('success')
   }, 5000)
   $('form').trigger('reset')
   $('#board').show()
+}
+
+const onBoardClickSuccess = function (response) {
+console.log(response)
 }
 
 module.exports = {
@@ -90,5 +94,6 @@ module.exports = {
   onSignInSuccess,
   onChangeSuccess,
   onSignOutSuccess,
-  onPlayGameSuccess
+  onPlayGameSuccess,
+  onBoardClickSuccess
 }

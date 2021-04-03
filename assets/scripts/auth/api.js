@@ -50,10 +50,22 @@ const playGame = function (data) {
   })
 }
 
+const boardClick = function (data) {
+  return $.ajax({
+    method: 'POST',
+    url: `${config.apiUrl}/games`,
+    data: data,
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   change,
   signOut,
-  playGame
+  playGame,
+  boardClick
 }

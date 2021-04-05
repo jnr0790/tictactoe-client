@@ -11,10 +11,13 @@ $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#play-game').hide()
+  $('#new-game').hide()
+
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChange)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#play-game').on('click', authEvents.onPlayGame)
+  $('#new-game').on('click', authEvents.onNewGame)
   $('#board div').on('click', authEvents.onBoardClick)
 })

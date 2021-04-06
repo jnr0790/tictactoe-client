@@ -1,4 +1,5 @@
 // get information from other files
+const store = require('./../store')
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
@@ -55,7 +56,9 @@ const onPlayGame = function () {
     .then(ui.onPlayGameSuccess)
     .catch(ui.onError)
 }
+
 let currentPlayer = 'X'
+
 const onBoardClick = function () {
   // const cells = $('#board div').toArray()
   // console.log(cells)
@@ -67,17 +70,42 @@ const onBoardClick = function () {
 
   if (cell.text() === '') {
     cell.text(currentPlayer)
+    store.game.cells[index] = currentPlayer
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
   } else {
     ui.onBoardClickSuccess()
   }
+
+  const value = $(event.target).text()
+
   if (currentPlayer === 'X') {
     $('#game-message').text('Player X. Your Turn!')
   } else {
     $('#game-message').text('Player O. Your Turn!')
   }
 
-  const value = $(event.target).text()
+  let winner
+  if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X' ||
+      store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X' ||
+      store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X' ||
+      store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X' ||
+      store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X' ||
+      store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X' ||
+      store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X' ||
+      store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X') {
+    winner = 'X'
+    $('#game-message').text(`${winner} Wins!`)
+  } else if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X' ||
+      store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O' ||
+      store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O' ||
+      store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O' ||
+      store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O' ||
+      store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O' ||
+      store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O' ||
+      store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O') {
+    winner = 'O'
+    $('#game-message').text(`${winner} Wins!`)
+  }
 
   // then pass the index and player to the boardClick function
   // so it can send that data to the API

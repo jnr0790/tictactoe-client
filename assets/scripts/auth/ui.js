@@ -86,7 +86,7 @@ const onPlayGameSuccess = function (response) {
   $('#board').show()
 }
 
-const onBoardClickSuccess = function (response) {
+const onBoardClickSuccess = function () {
   $('#player-message').text('Spot Taken!')
   $('#player-message').addClass('success')
   setTimeout(() => {

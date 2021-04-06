@@ -55,23 +55,22 @@ const onPlayGame = function () {
     .then(ui.onPlayGameSuccess)
     .catch(ui.onError)
 }
-
+let currentPlayer = 'X'
 const onBoardClick = function () {
   // const cells = $('#board div').toArray()
   // console.log(cells)
   // get the position the player chose on the board by the id attribute
   const index = event.target.id
   // figure out whos turn it is
-  let currentPlayer = 'playerX'
+  const cell = $(event.target)
   // use jquery to add the player to the html board
-  $(event.target).text('X')
-  if ($(event.target).text() === '') {
-    event.target.text(currentPlayer)
-    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+
+  if (cell.text() === '') {
+    cell.text(currentPlayer)
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
   } else {
     ui.onBoardClickSuccess()
   }
-
 
   const value = $(event.target).text()
 

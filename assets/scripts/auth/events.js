@@ -71,6 +71,11 @@ const onBoardClick = function () {
   } else {
     ui.onBoardClickSuccess()
   }
+  if (currentPlayer === 'X') {
+    $('#game-message').text('Player X. Your Turn!')
+  } else {
+    $('#game-message').text('Player O. Your Turn!')
+  }
 
   const value = $(event.target).text()
 

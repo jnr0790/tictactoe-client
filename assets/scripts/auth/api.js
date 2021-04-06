@@ -50,24 +50,21 @@ const playGame = function (data) {
   })
 }
 
-const newGame = function (data) {
+const boardClick = function (index, value) {
   return $.ajax({
-    method: 'POST',
-    url: `${config.apiUrl}/games`,
-    data: data,
+    method: 'PATCH',
+    url: `${config.apiUrl}/games/${store.game._id}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
-    }
-  })
-}
-
-const boardClick = function (data) {
-  return $.ajax({
-    method: 'POST',
-    url: `${config.apiUrl}/games`,
-    data: data,
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
+    },
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: value
+        },
+        over: false
+      }
     }
   })
 }
@@ -78,6 +75,5 @@ module.exports = {
   change,
   signOut,
   playGame,
-  newGame,
   boardClick
 }

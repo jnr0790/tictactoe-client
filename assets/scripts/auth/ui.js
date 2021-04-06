@@ -75,29 +75,24 @@ const onSignOutSuccess = function (response) {
 }
 
 const onPlayGameSuccess = function (response) {
-  $('#game-message').text('Have Fun!')
+  store.game = response.game
+  $('#game-message').text('Player X. Your Turn!')
   $('#game-message').addClass('success')
   setTimeout(() => {
     $('#game-message').text('')
     $('#game-message').removeClass('success')
   }, 5000)
-  $('#play-game').hide()
-  $('#new-game').show()
-  $('#board').show()
-}
-
-const onNewGameSuccess = function (response) {
-  $('#game-message').text('Have Fun!')
-  $('#game-message').addClass('success')
-  setTimeout(() => {
-    $('#game-message').text('')
-    $('#game-message').removeClass('success')
-  }, 5000)
+  $('#play-game').text('New Game!')
   $('#board').show()
 }
 
 const onBoardClickSuccess = function (response) {
-  console.log(response)
+  $('#player-message').text('Spot Taken!')
+  $('#player-message').addClass('success')
+  setTimeout(() => {
+    $('#player-message').text('')
+    $('#player-message').removeClass('success')
+  }, 5000)
 }
 
 module.exports = {
@@ -107,6 +102,5 @@ module.exports = {
   onChangeSuccess,
   onSignOutSuccess,
   onPlayGameSuccess,
-  onNewGameSuccess,
   onBoardClickSuccess
 }

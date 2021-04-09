@@ -12,7 +12,7 @@ const onError = function (err) {
     $('#message').text('')
     // remove the success class
     $('#message').removeClass('failure')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
 }
 
@@ -22,7 +22,7 @@ const onSignUpSuccess = function () {
   setTimeout(() => {
     $('#message').text('')
     $('#message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
 }
 
@@ -33,7 +33,7 @@ const onSignInSuccess = function (response) {
   setTimeout(() => {
     $('#message').text('')
     $('#message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
   $('#change-password').show()
   $('#sign-out').show()
@@ -50,7 +50,7 @@ const onChangeSuccess = function (response) {
     $('#message').text('')
     // remove the success class
     $('#message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
 }
 
@@ -63,7 +63,7 @@ const onSignOutSuccess = function (response) {
     $('#message').text('')
     // remove the success class
     $('#message').removeClass('success')
-  }, 5000)
+  }, 3000)
   $('form').trigger('reset')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -79,11 +79,6 @@ const onSignOutSuccess = function (response) {
 const onPlayGameSuccess = function (response) {
   store.game = response.game
   $('#game-message').text('Player X. Your Turn!')
-  $('#game-message').addClass('success')
-  setTimeout(() => {
-    $('#game-message').text('')
-    $('#game-message').removeClass('success')
-  }, 5000)
   $('#play-game').text('New Game!')
   $('#board').show()
 }
@@ -94,7 +89,7 @@ const onBoardClickSuccess = function () {
   setTimeout(() => {
     $('#player-message').text('')
     $('#player-message').removeClass('success')
-  }, 5000)
+  }, 3000)
 }
 
 module.exports = {

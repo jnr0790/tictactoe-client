@@ -95,7 +95,7 @@ const onBoardClick = function () {
       (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     winner = 'X'
     $('#game-message').text(`${winner} Wins!`)
-  } else if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+  } else if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
       (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
       (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') ||
       (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') ||
@@ -106,11 +106,13 @@ const onBoardClick = function () {
     winner = 'O'
     $('#game-message').text(`${winner} Wins!`)
   }
+  // else if () {
+  //   $('#game-message').text('Tie Game!')
+  // }
 
   // then pass the index and player to the boardClick function
   // so it can send that data to the API
   api.boardClick(index, value)
-    .then(ui.onBoardClickSuccess)
     .catch(ui.onError)
 }
 

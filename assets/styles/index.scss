@@ -1,7 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
+  margin-top: 10px;
   text-align: center;
+  font-family: 'Press Start 2P', sans-serif;
+  background: black;
+  color: white;
 }
 
 button {
@@ -12,7 +17,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: black;
+  background-color: blue;
   height: 490px;
   width: 490px;
   margin: 0 auto;
@@ -22,10 +27,14 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: black;
     height: 160px;
     width: 160px;
     margin-bottom: 5px;
-
+    font-size: 70px;
+    color: yellow;
+  }
+  div:hover {
+    background: gray;
   }
 }

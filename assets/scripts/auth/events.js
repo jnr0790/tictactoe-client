@@ -50,14 +50,13 @@ const onSignOut = function (event) {
     .then(ui.onSignOutSuccess)
     .catch(ui.onError)
 }
+let currentPlayer = 'X'
 
 const onPlayGame = function () {
   api.playGame()
     .then(ui.onPlayGameSuccess)
     .catch(ui.onError)
 }
-
-let currentPlayer = 'X'
 
 const onBoardClick = function () {
   // const cells = $('#board div').toArray()
@@ -83,6 +82,9 @@ const onBoardClick = function () {
   } else {
     $('#game-message').text('Player O. Your Turn!')
   }
+  const emptyArrayCheck = (tie) => tie !== ''
+  const tieGame = store.game.cells.every(emptyArrayCheck)
+  console.log(tieGame)
 
   let winner
   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
@@ -94,6 +96,7 @@ const onBoardClick = function () {
       (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
       (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     winner = 'X'
+    store.game.over = true
     $('#game-message').text(`${winner} Wins!`)
   } else if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
       (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
@@ -104,10 +107,21 @@ const onBoardClick = function () {
       (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
       (store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O')) {
     winner = 'O'
+    store.game.over = true
     $('#game-message').text(`${winner} Wins!`)
+  } else if (tieGame === true) {
+    $('#game-message').text('Tied!')
   }
-  // else if () {
-  //   $('#game-message').text('Tie Game!')
+
+  let moves
+  console.log(moves)
+  // const gameCell = store.game.cells
+  // for (let i = 0; i < gameCell.length; i++) {
+  //   console.log(gameCell[i])
+  //   if (gameCell === '') {
+  //   } else {
+  //     $('#game-message').text('Tie')
+  //   }
   // }
 
   // then pass the index and player to the boardClick function

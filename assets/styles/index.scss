@@ -9,8 +9,27 @@ body {
   color: white;
 }
 
-button {
+#sign-in, #sign-up, #change-password {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  input, button {
+    margin-top: 10px;
+  border-radius: 5px;
+  }
+}
+
+#sign-in, #sign-up, #change-password {
+margin-top: 50px;
+}
+
+#play-game, #sign-out {
   margin: 10px;
+  display: inline-block;
+  justify-content: space-between;
+  width: 230px;
+  border-radius: 5px;
 }
 
 #board {

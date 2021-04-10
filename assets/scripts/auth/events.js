@@ -53,6 +53,7 @@ const onSignOut = function (event) {
 let currentPlayer = 'X'
 
 const onPlayGame = function () {
+  currentPlayer = 'X'
   api.playGame()
     .then(ui.onPlayGameSuccess)
     .catch(ui.onError)
@@ -82,9 +83,10 @@ const onBoardClick = function () {
   } else {
     $('#game-message').text('Player O. Your Turn!')
   }
+  // function to check for an empty string
   const emptyArrayCheck = (tie) => tie !== ''
+  // running function in .every() to check if every index is filled or not
   const tieGame = store.game.cells.every(emptyArrayCheck)
-  console.log(tieGame)
 
   let winner
   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
@@ -115,14 +117,6 @@ const onBoardClick = function () {
 
   let moves
   console.log(moves)
-  // const gameCell = store.game.cells
-  // for (let i = 0; i < gameCell.length; i++) {
-  //   console.log(gameCell[i])
-  //   if (gameCell === '') {
-  //   } else {
-  //     $('#game-message').text('Tie')
-  //   }
-  // }
 
   // then pass the index and player to the boardClick function
   // so it can send that data to the API

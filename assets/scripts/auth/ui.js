@@ -81,6 +81,7 @@ const onPlayGameSuccess = function (response) {
   $('#game-message').text('Player X. Your Turn!')
   $('#play-game').text('New Game!')
   $('#board').show()
+  $('.game-cell').empty()
 }
 
 const onBoardClickSuccess = function () {

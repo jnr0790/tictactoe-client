@@ -50,8 +50,8 @@ const onSignOut = function (event) {
     .then(ui.onSignOutSuccess)
     .catch(ui.onError)
 }
-let currentPlayer = 'X'
 
+let currentPlayer = 'X'
 const onPlayGame = function () {
   currentPlayer = 'X'
   api.playGame()
@@ -68,10 +68,15 @@ const onBoardClick = function () {
   const cell = $(event.target)
   // use jquery to add the player to the html board
 
-  if (cell.text() === '') {
+  if (cell.text() === '' && store.game.over === false) {
     cell.text(currentPlayer)
     store.game.cells[index] = currentPlayer
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
+  } else if (store.game.over === true && cell.text() === '') {
+    $('#player-message').text('Stop clicking. The game\'s over')
+    setTimeout(() => {
+      $('#player-message').text('')
+    }, 3000)
   } else {
     ui.onBoardClickSuccess()
   }
@@ -84,7 +89,7 @@ const onBoardClick = function () {
     $('#game-message').text('Player O. Your Turn!')
   }
   // function to check for an empty string
-  const emptyArrayCheck = (tie) => tie !== ''
+  const emptyArrayCheck = (val) => val !== ''
   // running function in .every() to check if every index is filled or not
   const tieGame = store.game.cells.every(emptyArrayCheck)
 
@@ -112,16 +117,13 @@ const onBoardClick = function () {
     store.game.over = true
     $('#game-message').text(`${winner} Wins!`)
   } else if (tieGame === true) {
+    store.game.over = true
     $('#game-message').text('Tied!')
   }
-
-  let moves
-  console.log(moves)
 
   // then pass the index and player to the boardClick function
   // so it can send that data to the API
   api.boardClick(index, value)
-    .catch(ui.onError)
 }
 
 // export functions for app.js to aquire it

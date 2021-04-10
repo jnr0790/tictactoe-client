@@ -79,8 +79,9 @@ const onSignOutSuccess = function (response) {
 const onPlayGameSuccess = function (response) {
   store.game = response.game
   $('#game-message').text('Player X. Your Turn!')
-  $('#play-game').text('New Game!')
   $('#board').show()
+  $('#game-message').show()
+  $('#player-message').show()
   $('.game-cell').empty()
 }
 

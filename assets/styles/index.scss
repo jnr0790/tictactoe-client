@@ -67,10 +67,15 @@ body {
     margin: 0;
     padding: 0;
     margin-top: 10px;
-    width: 47%;
+    width: 50%;
     border-radius: 5px;
   }
-
+  #play-game {
+    margin-right: -8px;
+  }
+  #sign-out {
+    margin-left: -8px;
+  }
   #board {
     display: flex;
     flex-wrap: wrap;

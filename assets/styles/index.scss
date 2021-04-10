@@ -55,6 +55,13 @@ body {
   }
 }
 
+.btn {
+  padding: 0;
+  align-content: center;
+  background: lightgrey;
+  height: 25px;
+}
+
 @media screen and (max-width: 500px) {
   h1 {
     font-size: 30px;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        <h1>Tic Tac Toe</h1>
+      </header>
+      <main>
+        <section>
+          <div id='message'></div>
+        </section>
+
+        <section>
+          <form id='sign-up'>
+            <h4>Sign Up</h4>
+            <input type='email' name='credentials[email]' placeholder='Enter Email' required>
+            <input type='password' name='credentials[password]' placeholder='Enter Password' required>
+            <input type='password' name='credentials[password_confirmation]' placeholder='Confirm Password' required>
+            <button class='btn'>Sign Up</button>
+          </form>
+        </section>
+
+        <section>
+        <form id='sign-in'>
+          <h4>Sign In</h4>
+          <input type='email' name='credentials[email]' placeholder='Enter Email' required>
+          <input type='password' name='credentials[password]' placeholder='Enter Password' required>
+          <button class='btn'>Sign In</button>
+        </form>
+      </section>
+
+      <section>
+        <form id='change-password'>
+          <input type='password' name='passwords[old]' placeholder='Enter Old Password' required>
+          <input type='password' name='passwords[new]' placeholder='Enter New Password' required>
+          <button class='btn'>Change Password</button>
+        </form>
+      </section>
+
+      <button id='play-game' class='btn'>New Game!</button>
+
+      <button id='sign-out' class='btn'>Sign Out</button>
+
+      <div id='game-message'></div>
+
+      <div id='player-message'></div>
+
+      <div id='board'>
+          <div data-cell-index='0' id='0' class='game-cell'></div>
+          <div data-cell-index='1' id='1' class='game-cell'></div>
+          <div data-cell-index='2' id='2' class='game-cell'></div>
+
+          <div data-cell-index='3' id='3' class='game-cell'></div>
+          <div data-cell-index='4' id='4' class='game-cell'></div>
+          <div data-cell-index='5' id='5' class='game-cell'></div>
+
+          <div data-cell-index='6' id='6' class='game-cell'></div>
+          <div data-cell-index='7' id='7' class='game-cell'></div>
+          <div data-cell-index='8' id='8' class='game-cell'></div>
+      </div>
+
+    </main>
+  </body>
+</html>

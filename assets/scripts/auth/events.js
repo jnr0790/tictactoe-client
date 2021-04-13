@@ -68,15 +68,18 @@ const onBoardClick = function () {
   const cell = $(event.target)
   // use jquery to add the player to the html board
 
-  if (cell.text() === '' && store.game.over === false) {
-    cell.text(currentPlayer)
-    store.game.cells[index] = currentPlayer
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
-  } else if (store.game.over === true && cell.text() === '') {
+  if (store.game.over === true) {
     $('#player-message').text('Stop clicking. The game\'s over')
     setTimeout(() => {
       $('#player-message').text('')
-    }, 3000)
+    }, 2000)
+    return
+  }
+
+  if (cell.text() === '') {
+    cell.text(currentPlayer)
+    store.game.cells[index] = currentPlayer
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
   } else {
     ui.onBoardClickSuccess()
   }
@@ -124,6 +127,7 @@ const onBoardClick = function () {
   // then pass the index and player to the boardClick function
   // so it can send that data to the API
   api.boardClick(index, value)
+    .catch(ui.onError)
 }
 
 // export functions for app.js to aquire it
